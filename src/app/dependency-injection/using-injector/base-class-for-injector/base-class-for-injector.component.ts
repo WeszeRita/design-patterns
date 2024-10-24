@@ -6,10 +6,13 @@ import { LoggerService } from '../../../../shared/logger.service';
   templateUrl: './base-class-for-injector.component.html',
 })
 export class BaseClassForInjectorComponent implements OnInit {
-  constructor(protected injector: Injector) {}
+  readonly logger: LoggerService;
+
+  constructor(private injector: Injector) {
+    this.logger = injector.get(LoggerService);
+  }
 
   ngOnInit(): void {
-    let logger: LoggerService = this.injector.get(LoggerService);
-    logger.log('Charles');
+    this.logger.log('Charles');
   }
 }

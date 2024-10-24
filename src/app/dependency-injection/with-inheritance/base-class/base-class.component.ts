@@ -6,10 +6,9 @@ import { LoggerService } from '../../../../shared/logger.service';
   templateUrl: './base-class.component.html',
 })
 export class BaseClassComponent implements OnInit {
-  constructor(protected loggerService: LoggerService) {}
+  constructor(private loggerService: LoggerService) {}
 
   ngOnInit(): void {
     this.loggerService.log('Adam');
   }
 }
-
