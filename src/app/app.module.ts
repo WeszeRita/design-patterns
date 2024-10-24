@@ -8,6 +8,9 @@ import { MyClassForInjectorComponent } from './dependency-injection/using-inject
 import { MyClassForInjectMethodComponent } from './dependency-injection/using-inject-method/my-class-for-inject-method/my-class-for-inject-method.component';
 import { BaseClassForInjectMethodComponent } from './dependency-injection/using-inject-method/base-class-for-inject-method/base-class-for-inject-method.component';
 import { LoggerService } from '../shared/logger.service';
+import { ComponentAComponent } from './singleton-non-singleton/component-a/component-a.component';
+import { ComponentBComponent } from './singleton-non-singleton/component-b/component-b.component';
+import { DataService } from '../shared/data.service';
 
 export const LOGGER_TOKEN = new InjectionToken<LoggerService>('LoggerService');
 export const LOGGER_CONFIG_TOKEN = new InjectionToken<string>('loggerServiceConfig');
@@ -21,9 +24,12 @@ export const LOGGER_CONFIG_TOKEN = new InjectionToken<string>('loggerServiceConf
     MyClassForInjectorComponent,
     MyClassForInjectMethodComponent,
     BaseClassForInjectMethodComponent,
+    ComponentAComponent,
+    ComponentBComponent,
   ],
   imports: [BrowserModule],
   providers: [
+    DataService,
     { provide: LOGGER_TOKEN, useClass: LoggerService },
     { provide: LOGGER_CONFIG_TOKEN, useValue: 'Eric'},
   ],
