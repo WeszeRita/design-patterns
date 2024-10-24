@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { InjectionToken, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BaseClassComponent } from './dependency-injection/with-inheritance/base-class/base-class.component';
@@ -8,6 +8,9 @@ import { MyClassForInjectorComponent } from './dependency-injection/using-inject
 import { MyClassForInjectMethodComponent } from './dependency-injection/using-inject-method/my-class-for-inject-method/my-class-for-inject-method.component';
 import { BaseClassForInjectMethodComponent } from './dependency-injection/using-inject-method/base-class-for-inject-method/base-class-for-inject-method.component';
 import { LoggerService } from '../shared/logger.service';
+
+export const LOGGER_TOKEN = new InjectionToken<LoggerService>('LoggerService');
+export const LOGGER_CONFIG_TOKEN = new InjectionToken<string>('loggerServiceConfig');
 
 @NgModule({
   declarations: [
@@ -21,8 +24,8 @@ import { LoggerService } from '../shared/logger.service';
   ],
   imports: [BrowserModule],
   providers: [
-    { provide: 'loggerServiceForInjectMethod', useClass: LoggerService },
-    { provide: 'loggerServiceConfig', useValue: 'Eric'},
+    { provide: LOGGER_TOKEN, useClass: LoggerService },
+    { provide: LOGGER_CONFIG_TOKEN, useValue: 'Eric'},
   ],
   bootstrap: [AppComponent]
 })
