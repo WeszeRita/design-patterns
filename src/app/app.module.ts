@@ -8,11 +8,14 @@ import { MyClassForInjectorComponent } from './dependency-injection/using-inject
 import { MyClassForInjectMethodComponent } from './dependency-injection/using-inject-method/my-class-for-inject-method/my-class-for-inject-method.component';
 import { BaseClassForInjectMethodComponent } from './dependency-injection/using-inject-method/base-class-for-inject-method/base-class-for-inject-method.component';
 import { LoggerService } from '../shared/logger.service';
+import { Module1Module } from './singleton/module-1/module-1.module';
+import { Module2Module } from './singleton/module-2/module-2.module';
 
 export const LOGGER_TOKEN = new InjectionToken<LoggerService>('LoggerService');
 export const LOGGER_CONFIG_TOKEN = new InjectionToken<string>('loggerServiceConfig');
 
 @NgModule({
+  imports: [BrowserModule, Module1Module, Module2Module],
   declarations: [
     AppComponent,
     BaseClassComponent,
@@ -22,7 +25,6 @@ export const LOGGER_CONFIG_TOKEN = new InjectionToken<string>('loggerServiceConf
     MyClassForInjectMethodComponent,
     BaseClassForInjectMethodComponent,
   ],
-  imports: [BrowserModule],
   providers: [
     { provide: LOGGER_TOKEN, useClass: LoggerService },
     { provide: LOGGER_CONFIG_TOKEN, useValue: 'Eric'},
