@@ -1,0 +1,17 @@
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../../../shared/data.service';
+
+@Component({
+  selector: 'app-component-2',
+  templateUrl: './component-2.component.html',
+})
+export class Component2Component implements OnInit {
+  private data: number[];
+
+  constructor(private readonly dataService: DataService) {}
+
+  ngOnInit(): void {
+    this.data = this.dataService.getData();
+    console.log('Component 2:', this.data);
+  }
+}
