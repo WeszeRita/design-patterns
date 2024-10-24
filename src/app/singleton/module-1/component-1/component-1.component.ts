@@ -8,7 +8,7 @@ import { DataService } from '../../../../shared/data.service';
 export class Component1Component implements OnInit {
   private data: number[];
 
-  constructor(readonly dataService: DataService) {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
     this.data = this.dataService.getData();

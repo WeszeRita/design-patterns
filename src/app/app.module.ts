@@ -15,6 +15,7 @@ export const LOGGER_TOKEN = new InjectionToken<LoggerService>('LoggerService');
 export const LOGGER_CONFIG_TOKEN = new InjectionToken<string>('loggerServiceConfig');
 
 @NgModule({
+  imports: [BrowserModule, Module1Module, Module2Module],
   declarations: [
     AppComponent,
     BaseClassComponent,
@@ -24,7 +25,6 @@ export const LOGGER_CONFIG_TOKEN = new InjectionToken<string>('loggerServiceConf
     MyClassForInjectMethodComponent,
     BaseClassForInjectMethodComponent,
   ],
-  imports: [BrowserModule, Module1Module, Module2Module],
   providers: [
     { provide: LOGGER_TOKEN, useClass: LoggerService },
     { provide: LOGGER_CONFIG_TOKEN, useValue: 'Eric'},
