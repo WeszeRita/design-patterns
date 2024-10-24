@@ -6,7 +6,7 @@ import { LoggerService } from '../../../../shared/logger.service';
   templateUrl: './base-class-for-injector.component.html',
 })
 export class BaseClassForInjectorComponent implements OnInit {
-  readonly logger: LoggerService;
+  protected readonly logger: LoggerService;
 
   constructor(private readonly injector: Injector) {
     this.logger = injector.get(LoggerService);
