@@ -13,5 +13,9 @@ export class Component2Component implements OnInit {
   ngOnInit(): void {
     this.data = this.dataService.getData();
     console.log('Component 2:', this.data);
+
+    this.dataService.setData([4, 5]);
+    this.data = this.dataService.getData();
+    console.log('New data:', this.data);
   }
 }

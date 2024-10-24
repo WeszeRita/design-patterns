@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class DataService {
-  private readonly data = [1, 2, 3, 4];
+  private data = [1, 2, 3];
 
   getData(): number[] {
     return this.data;
+  }
+
+  setData(newData: number[]): void {
+    this.data = newData;
   }
 }

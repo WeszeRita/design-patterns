@@ -13,5 +13,8 @@ export class Component1Component implements OnInit {
   ngOnInit(): void {
     this.data = this.dataService.getData();
     console.log('Component 1:', this.data);
+
+    setTimeout(() => this.data = this.dataService.getData(), 100);
+    setTimeout(() => console.log('To prove, that the service is singleton', this.data), 200);
   }
 }

@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Component1Component } from './component-1/component-1.component';
-import { DataService } from '../../../shared/data.service';
-
-
+import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -12,11 +10,9 @@ import { DataService } from '../../../shared/data.service';
   exports: [
     Component1Component,
   ],
-  providers: [
-    DataService,
-  ],
   imports: [
     CommonModule,
+    SharedModule,
   ],
 })
 export class Module1Module { }
