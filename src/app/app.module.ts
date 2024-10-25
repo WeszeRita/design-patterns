@@ -10,12 +10,13 @@ import { BaseClassForInjectMethodComponent } from './dependency-injection/using-
 import { LoggerService } from '../shared/logger.service';
 import { Module1Module } from './singleton/module-1/module-1.module';
 import { Module2Module } from './singleton/module-2/module-2.module';
+import { NonSingletonModule } from './non-singleton/non-singleton.module';
 
 export const LOGGER_TOKEN = new InjectionToken<LoggerService>('LoggerService');
 export const LOGGER_CONFIG_TOKEN = new InjectionToken<string>('loggerServiceConfig');
 
 @NgModule({
-  imports: [BrowserModule, Module1Module, Module2Module],
+  imports: [BrowserModule, Module1Module, Module2Module, NonSingletonModule],
   declarations: [
     AppComponent,
     BaseClassComponent,
