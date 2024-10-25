@@ -10,7 +10,7 @@ import { BaseClassForInjectMethodComponent } from './dependency-injection/using-
 import { LoggerService } from '../shared/logger.service';
 import { NonSingletonModule } from './non-singleton/non-singleton.module';
 import { Routes, RouterModule } from '@angular/router';
-
+import { SharedModule } from '../shared/shared.module';
 export const LOGGER_TOKEN = new InjectionToken<LoggerService>('LoggerService');
 export const LOGGER_CONFIG_TOKEN = new InjectionToken<string>('loggerServiceConfig');
 
@@ -26,7 +26,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [BrowserModule, NonSingletonModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, NonSingletonModule, RouterModule.forRoot(routes), SharedModule.forRoot()],
   declarations: [
     AppComponent,
     BaseClassComponent,

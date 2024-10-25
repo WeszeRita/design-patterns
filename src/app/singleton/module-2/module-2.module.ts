@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { Component2Component } from './component-2/component-2.component';
 import { SharedModule } from '../../../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { DataService } from '../../../shared/data.service';
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule,
     RouterModule.forChild([{ path: '', component: Component2Component }]),
+    SharedModule,
   ],
   declarations: [Component2Component],
   exports: [Component2Component],

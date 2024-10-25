@@ -7,8 +7,8 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule,
     RouterModule.forChild([{ path: '', component: Component1Component }]),
+    SharedModule,
   ],
   declarations: [Component1Component],
   exports: [Component1Component],
