@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class DataService {
-  private data = [1, 2, 3];
+  private data: number[];
 
   getData(): number[] {
     return this.data;

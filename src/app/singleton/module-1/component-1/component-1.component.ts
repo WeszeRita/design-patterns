@@ -6,15 +6,12 @@ import { DataService } from '../../../../shared/data.service';
   templateUrl: './component-1.component.html',
 })
 export class Component1Component implements OnInit {
-  private data: number[];
-
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.data = this.dataService.getData();
-    console.log('Component 1:', this.data);
-
-    setTimeout(() => this.data = this.dataService.getData(), 100);
-    setTimeout(() => console.log('To prove, that the service is singleton', this.data), 200);
+    console.log('Component 1 before:', this.dataService.getData());
+    this.dataService.setData([1, 2]);
+    console.log('set [1, 2]');
+    console.log('Component 1 after:', this.dataService.getData());
   }
 }

@@ -6,16 +6,12 @@ import { DataService } from '../../../../shared/data.service';
   templateUrl: './component-2.component.html',
 })
 export class Component2Component implements OnInit {
-  private data: number[];
-
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.data = this.dataService.getData();
-    console.log('Component 2:', this.data);
-
+    console.log('Component 2 before:', this.dataService.getData());
     this.dataService.setData([4, 5]);
-    this.data = this.dataService.getData();
-    console.log('New data:', this.data);
+    console.log('set [4, 5]');
+    console.log('Component 2 after:', this.dataService.getData());
   }
 }
