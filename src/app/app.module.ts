@@ -8,6 +8,7 @@ import { MyClassForInjectorComponent } from './dependency-injection/using-inject
 import { MyClassForInjectMethodComponent } from './dependency-injection/using-inject-method/my-class-for-inject-method/my-class-for-inject-method.component';
 import { BaseClassForInjectMethodComponent } from './dependency-injection/using-inject-method/base-class-for-inject-method/base-class-for-inject-method.component';
 import { LoggerService } from '../shared/logger.service';
+import { NotificationComponent } from './factory-pattern/notification/notification.component';
 
 export const LOGGER_TOKEN = new InjectionToken<LoggerService>('LoggerService');
 export const LOGGER_CONFIG_TOKEN = new InjectionToken<string>('loggerServiceConfig');
@@ -21,6 +22,7 @@ export const LOGGER_CONFIG_TOKEN = new InjectionToken<string>('loggerServiceConf
     MyClassForInjectorComponent,
     MyClassForInjectMethodComponent,
     BaseClassForInjectMethodComponent,
+    NotificationComponent,
   ],
   imports: [BrowserModule],
   providers: [
