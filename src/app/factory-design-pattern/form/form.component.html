@@ -1,0 +1,12 @@
+<form [formGroup]="form">
+  <label>title:<input type="text" placeholder="text..." formControlName="title"></label>
+  <button type="button" (click)="updateTitle()">update title</button>
+  <hr>
+
+  <label>description:<input type="text" placeholder="text..." formControlName="description"></label>
+  <button type="button" (click)="updateDescription()">update title</button>
+  <hr>
+
+  <label>status:<input type="text" placeholder="text..." formControlName="status"></label>
+  <button type="button" (click)="updateStatus()">update title</button>
+</form>

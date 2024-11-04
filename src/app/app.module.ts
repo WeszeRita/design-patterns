@@ -1,4 +1,4 @@
-import { InjectionToken, NgModule } from '@angular/core';
+import { InjectionToken, isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BaseClassComponent } from './dependency-injection/with-inheritance/base-class/base-class.component';
@@ -11,6 +11,8 @@ import { LoggerService } from '../shared/logger.service';
 import { NonSingletonModule } from './non-singleton/non-singleton.module';
 import { Routes, RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { FactoryDesignPatternModule } from './factory-design-pattern/factory-design-pattern.module';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 export const LOGGER_TOKEN = new InjectionToken<LoggerService>('LoggerService');
 export const LOGGER_CONFIG_TOKEN = new InjectionToken<string>('loggerServiceConfig');
 
@@ -26,7 +28,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [BrowserModule, NonSingletonModule, RouterModule.forRoot(routes), SharedModule.forRoot()],
+  imports: [
+    BrowserModule,
+    NonSingletonModule,
+    RouterModule.forRoot(routes),
+    SharedModule.forRoot(),
+    FactoryDesignPatternModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+  ],
   declarations: [
     AppComponent,
     BaseClassComponent,
