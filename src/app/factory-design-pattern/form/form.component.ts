@@ -34,17 +34,14 @@ export class FormComponent implements OnInit {
   }
 
   updateTitle(): void {
-    console.log(this.titleControl.value);
     this.store.dispatch(FormActions.editForm({ payloadType: 'title', value: this.titleControl.value }));
   }
 
   updateDescription(): void {
-    console.log(this.descriptionControl.value);
     this.store.dispatch(FormActions.editForm({ payloadType: 'description', value: this.descriptionControl.value }));
   }
 
   updateStatus(): void {
-    console.log(this.statusControl.value);
     this.store.dispatch(FormActions.editForm({ payloadType: 'status', value: this.statusControl.value }));
   }
 }

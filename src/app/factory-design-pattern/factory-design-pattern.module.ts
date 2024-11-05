@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { FormEffects } from './store/form.effects';
+import { formReducers } from './store/form.reducers';
+import { formFeatureKey } from './store/form.selectors';
 
 @NgModule({
   imports: [
@@ -13,9 +15,13 @@ import { FormEffects } from './store/form.effects';
     ReactiveFormsModule,
     HttpClientModule,
     StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({
+      [formFeatureKey]: formReducers,
+    }),
     EffectsModule.forRoot([FormEffects]),
   ],
   declarations: [FormComponent],
   exports: [FormComponent],
 })
-export class FactoryDesignPatternModule {}
+export class FactoryDesignPatternModule {
+}
