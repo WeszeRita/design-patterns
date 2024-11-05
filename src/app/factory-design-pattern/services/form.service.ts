@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { delay, Observable } from 'rxjs';
+import { delay, Observable, of, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { PayloadType } from '../payload.type';
 
@@ -10,6 +10,10 @@ export class FormService {
   constructor(private http: HttpClient) {}
 
   editForm(payloadType: PayloadType, value: string): Observable<any> {
-    return this.http.patch('http://localhost:3000/form/1', { [payloadType]: value }).pipe(delay(1000));
+    return of(null)
+      .pipe(
+        delay(3000),
+        switchMap(() => this.http.patch('http://localhost:3000/form/1', { [payloadType]: value }))
+      );
   }
 }

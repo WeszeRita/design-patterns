@@ -18,7 +18,7 @@ export const formReducers = createReducer(
   on(FormActions.formEdited, (state, action) => {
     return {
       ...state,
-      payloadType: action.value,
+      ...action.value,
     };
   }),
 );
