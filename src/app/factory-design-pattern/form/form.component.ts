@@ -45,5 +45,3 @@ export class FormComponent implements OnInit {
     this.store.dispatch(FormActions.editForm({ payloadType: 'status', value: this.statusControl.value }));
   }
 }
-
-
