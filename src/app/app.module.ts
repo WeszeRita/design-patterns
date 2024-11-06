@@ -13,6 +13,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { FactoryDesignPatternModule } from './factory-design-pattern/factory-design-pattern.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CustomDecoratorComponent } from './custom-decorator/custom-decorator.component';
 export const LOGGER_TOKEN = new InjectionToken<LoggerService>('LoggerService');
 export const LOGGER_CONFIG_TOKEN = new InjectionToken<string>('loggerServiceConfig');
 
@@ -44,6 +45,7 @@ const routes: Routes = [
     MyClassForInjectorComponent,
     MyClassForInjectMethodComponent,
     BaseClassForInjectMethodComponent,
+    CustomDecoratorComponent,
   ],
   providers: [
     { provide: LOGGER_TOKEN, useClass: LoggerService },
